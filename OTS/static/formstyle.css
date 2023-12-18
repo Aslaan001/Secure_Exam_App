@@ -1,0 +1,30 @@
+form{
+    box-sizing:border-box;
+    padding:20px;
+    border-radius:10px;
+    background-color:rgb(153, 186, 199);
+    display:table;
+    width:100%;
+    color:white;
+}
+input{
+    display:block;
+    width:100%;
+    margin-bottom:20px;
+    height:30px;
+    font-size:22px;
+}
+.question{
+    color:black;
+    font-size:22px;
+    margin-bottom:20px;
+}
+.options{
+    font-size:22px;
+    color:black;
+}
+.options input{
+    display:inline;
+    width:fit-content;
+    height:10px;
+}

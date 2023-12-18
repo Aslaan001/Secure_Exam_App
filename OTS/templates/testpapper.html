@@ -1,0 +1,37 @@
+{% extends 'main.html' %}
+
+{%block title%} OTS Test Papper {%endblock title%}
+
+
+{%block top%}
+
+{% endblock %}
+
+{% block content%}
+
+<form action="{% url 'OTS:calculatetest' %}" method="post">
+    {% csrf_token %}
+    {% for question in questions%}
+
+    <div class="question">
+        <h4>  <input type="hidden" name="qno{{question.qid}}" value="{{question.qid}}">
+          {{question.que}}
+
+        </h4>
+    </div>
+
+    <div class="options"><input type="radio" name="q{{question.qid}}" value="a"> {{question.a}} </div>
+    <div class="options"><input type="radio" name="q{{question.qid}}" value="b"> {{question.b}} </div>
+    <div class="options"><input type="radio" name="q{{question.qid}}" value="c"> {{question.c}} </div>
+    <div class="options"><input type="radio" name="q{{question.qid}}" value="d"> {{question.d}} </div>
+
+    {%endfor%}
+
+  <div id="abc">
+
+    <input type="submit" value="submit">
+  </div>
+
+
+</form>
+{%endblock%}

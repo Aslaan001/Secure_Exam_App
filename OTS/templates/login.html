@@ -1,0 +1,53 @@
+{% extends 'main.html' %}
+
+{%block title%} OTS Login Form {%endblock title%}
+
+
+{%block top%}
+<a href="{% url 'OTS:registrationfrom' %}">Sign Up</a>
+
+{% endblock %}
+
+{% block content%}
+
+<div class="all-forms">
+
+    {% if loginerror %}
+
+    <div id="error">INVALID Login Error</div>
+
+    {% endif %}
+  <form action="{% url 'OTS:login' %}" method="POST">
+   {% csrf_token %}
+
+   <div class="form-unit">
+
+    <label for="username">Username</label>
+    <input type="text" name="username">
+
+   </div>
+
+
+   <div class="form-unit">
+
+    <label for="password">Password</label>
+    <input type="password" name="password">
+
+   </div>
+
+
+   <div class="form-unit">
+
+   
+    <input type="submit" value="Login">
+    <input type="reset" value="Clear">
+
+   </div>
+
+
+  </form>
+
+
+  New User <a href="{% url 'OTS:registrationfrom' %}"> Click Here</a>
+</div>
+{%endblock%}
