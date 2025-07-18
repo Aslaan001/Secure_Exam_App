@@ -2,8 +2,10 @@ services:
   - type: web
     name: secure-exam-app
     env: python
-    buildCommand: "pip install -r requirements.txt"
-    startCommand: "gunicorn examapp.wsgi:application"
+    buildCommand: |
+      pip install -r requirements.txt
+      python manage.py collectstatic --noinput
+    startCommand: gunicorn examapp.wsgi:application
     envVars:
       - key: DJANGO_SETTINGS_MODULE
         value: examapp.settings
